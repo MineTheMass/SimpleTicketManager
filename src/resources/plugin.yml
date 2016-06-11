@@ -1,6 +1,6 @@
 name: SimpleTicketManager
 main: uk.co.joshuawoolley.simpleticketmanager.SimpleTicketManager
-version: 2.0.2
+version: ${version} (${git.commit.id.abbrev})
 
 commands:
   report:
