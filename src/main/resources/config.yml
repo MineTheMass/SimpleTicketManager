@@ -3,6 +3,9 @@
 #        Made by Jwoolley          #
 ####################################
 
+#If you want the server to broadcast when a new ticket is created
+broadcastNewTicket: false
+
 #Set to true if you wish to allow other people to close tickets,
 #Set to false if you only want the person who claimed it to be able to close it
 allowotherstoclose: false

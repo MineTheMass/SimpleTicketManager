@@ -95,13 +95,16 @@ public class TicketManager {
 		ticketsToUpdate.add(newTicket);
 		currentTicketId++;
 		sender.sendMessage(tag + ChatColor.translateAlternateColorCodes('&', checkMessages(plugin.messageData.get("createTicket"))));
-		
-		for(Player p : Bukkit.getOnlinePlayers()) {
-			if (p.hasPermission("ticket.use")) {
-				p.sendMessage(tag + ChatColor.translateAlternateColorCodes('&', checkMessages(plugin.messageData.get("adminUpdate"))));
+
+		if (this.plugin.getConfig().getBoolean("broadcastNewTicket", false)) {
+			for (Player p : Bukkit.getOnlinePlayers()) {
+				if (p.hasPermission("ticket.use")) {
+					p.sendMessage(tag + ChatColor.translateAlternateColorCodes('&', checkMessages(plugin.messageData.get("adminUpdate"))));
+				}
 			}
 		}
-                plugin.getServer().getPluginManager().callEvent(new SimpleTicketEvent("create", newTicket));
+
+		plugin.getServer().getPluginManager().callEvent(new SimpleTicketEvent("create", newTicket));
 	}
 	
 	/**
