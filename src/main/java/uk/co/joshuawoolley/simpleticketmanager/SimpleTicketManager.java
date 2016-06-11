@@ -8,7 +8,6 @@ import java.util.HashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.mcstats.Metrics;
 
 import uk.co.joshuawoolley.simpleticketmanager.command.CommandHandler;
 import uk.co.joshuawoolley.simpleticketmanager.database.MySQL;
@@ -77,14 +76,7 @@ public class SimpleTicketManager extends JavaPlugin {
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(new PlayerJoin(this, manager), this);
 		manager.startTask();
-	
-		try {
-	        Metrics metrics = new Metrics(this);
-	        metrics.start();
-	    } catch (IOException e) {
-	        // Failed to submit the stats :-(
-	    }
-		
+
 		getLogger().info("Simple Ticket Managers has been successfully enabled!");
 	}
 	
